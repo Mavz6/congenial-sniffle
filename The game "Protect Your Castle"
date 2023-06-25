@@ -1,0 +1,39 @@
+import random
+
+castle_health = 100
+num_enemies = 5
+enemy_attack_damage = 20
+
+print("Welcome to Protect Your Castle!")
+print("Defend your castle from the enemies!\n")
+
+while castle_health > 0 and num_enemies > 0:
+    print("Castle health:", castle_health)
+    print("Number of enemies:", num_enemies)
+
+    action = input("\nEnter 'a' to attack, 'r' to repair castle: ")
+
+    if action == 'a':
+        damage_dealt = random.randint(10, 25)
+        enemy_damage = random.randint(5, 15)
+        castle_health -= enemy_damage
+        num_enemies -= 1
+
+        print("You attacked an enemy and dealt", damage_dealt, "damage.")
+        print("The enemy counter-attacked and dealt", enemy_damage, "damage to the castle.")
+
+    elif action == 'r':
+        repair_amount = random.randint(10, 20)
+        castle_health += repair_amount
+
+        print("You repaired the castle by", repair_amount, "points.")
+
+    else:
+        print("Invalid action. Please try again.")
+
+    print()
+
+if castle_health <= 0:
+    print("Game over! Your castle has been destroyed.")
+else:
+    print("Congratulations! You successfully defended your castle.")
